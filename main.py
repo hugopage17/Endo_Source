@@ -13,7 +13,7 @@ import webbrowser
 intro = Intro('https://api.jsonbin.io/b/5c26fbae412d482eae5706fc')
 intro.show_details()
 
-web_data = 'https://api.jsonbin.io/b/5c26bd046265442e46fe1f1c/1'
+web_data = 'https://api.jsonbin.io/b/5c26bd046265442e46fe1f1c/2'
 app_data = 'https://api.jsonbin.io/b/5c2ea1c57b31f426f8508620/4'
 
 installer = Installer()
