@@ -29,10 +29,10 @@ class Installer:
                         print(Fore.LIGHTCYAN_EX + 'Importing '+file_name)
                         with open(directory+'/'+file_name, 'wb') as f:
                             f.write(r.content)
-                        logo_link = requests.get('https://i.imgur.com/lVCIaKv.png')
-                        print(Fore.LIGHTCYAN_EX + 'Importing endo_logo.png')
-                        with open(directory+'/endo_logo.png', 'wb') as img:
-                            img.write(logo_link.content)
+                    logo_link = requests.get('https://i.imgur.com/lVCIaKv.png')
+                    print(Fore.LIGHTCYAN_EX + 'Importing endo_logo.png')
+                    with open(directory+'/endo_logo.png', 'wb') as img:
+                        img.write(logo_link.content)
                 except requests.ConnectionError:
                     print(Fore.RED + "ERROR_04: No internet connection, please check your connection and try again")
                     time.sleep(1)
