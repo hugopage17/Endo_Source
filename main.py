@@ -8,12 +8,13 @@ import os
 import sys
 from time import sleep
 from open_file import OpenFile
+import webbrowser
 
 intro = Intro('https://api.jsonbin.io/b/5c26fbae412d482eae5706fc')
 intro.show_details()
 
-web_data = 'https://api.jsonbin.io/b/5c26bd046265442e46fe1f1c'
-app_data = 'https://api.jsonbin.io/b/5c2ea1c57b31f426f8508620/3'
+web_data = 'https://api.jsonbin.io/b/5c26bd046265442e46fe1f1c/1'
+app_data = 'https://api.jsonbin.io/b/5c2ea1c57b31f426f8508620/4'
 
 installer = Installer()
 
@@ -50,6 +51,8 @@ def endo():
         print("Endo is shutting down...")
         sleep(1)
         sys.exit()
+    elif command == 'endo':
+        webbrowser.open('https://hugopage17.github.io/endo/')
     else:
         print(Fore.RED + "ERROR_05: "+command+" is not a valid command, type 'commands' to get a list of all valid commands")
         print(Style.RESET_ALL)
