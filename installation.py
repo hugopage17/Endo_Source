@@ -37,6 +37,10 @@ class Installer:
                     time.sleep(1)
                     sys.exit()
                 os.chdir(directory)
+                current_dir = os.getcwd()
+                server_file = Path(current_dir+'/server.py')
+                if server_file.is_file():
+                    os.system('attrib +h server.py')
                 print(Fore.GREEN + "INSTALLATION COMPLETE")
             else:
                 print (Fore.RED + 'ERROR_03: Directory already exists, please name your project something else')
