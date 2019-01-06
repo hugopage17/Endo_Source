@@ -21,18 +21,20 @@ installer = Installer()
 def endo():
     command = input()
     command = command.lower()
-    if command == 'create project':
+    if (command[:14]) == 'create project':
+        website_name = command[17:]
         data = GetData(web_data)
         if hasattr(data, 'is_loaded') and data.is_loaded == True:
-            installer.run_installer(data.json_data)
+            installer.run_installer(data.json_data, website_name)
             print(Fore.YELLOW + "Type 'start' to deploy the server")
             print(Style.RESET_ALL)
         else:
             data.retrieve_failed()
-    elif command == 'create app':
+    elif (command[:10]) == 'create app':
+        app_name = command[13:]
         data = GetData(app_data)
         if hasattr(data, 'is_loaded') and data.is_loaded == True:
-            installer.run_installer(data.json_data)
+            installer.run_installer(data.json_data, app_name)
             print(Fore.YELLOW + "Type 'run' to start up the app")
             print(Style.RESET_ALL)
         else:

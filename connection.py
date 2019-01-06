@@ -28,6 +28,6 @@ class Connection:
             for data in self.json_data:
                 version_num = data["version"]
                 print('Endo Version: '+version_num)
-            print("Type 'create project' to get started")
+            print("Type 'create project - project name' to get started")
         except AttributeError:
             pass

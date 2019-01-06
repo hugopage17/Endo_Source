@@ -12,8 +12,7 @@ class Installer:
     def __init__(self):
         pass
 
-    def run_installer(self, json_data):
-        folder_name = input('Project Name: ')
+    def run_installer(self, json_data, folder_name):
         current_user = getpass.getuser()
         directory = '/Users/'+current_user+'/Desktop/'+folder_name
         try:
@@ -56,6 +55,7 @@ class Installer:
 
     def start_app(self):
         try:
+            os.system('cls')
             subprocess.check_call('npm install', shell=True)
             subprocess.check_call('npm start', shell=True)
         except:
