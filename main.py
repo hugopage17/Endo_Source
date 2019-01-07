@@ -49,7 +49,11 @@ def endo():
         installer.start_app()
     elif (command[:4]) == 'open':
         folder = command[8:]
-        open = OpenFile(folder)
+        try:
+            open = OpenFile(folder)
+        except:
+            print(Fore.RED + "ERROR_10: Invalid directory be sure to type 'open - directory name' and please try again")
+            print(Style.RESET_ALL)
     elif command == 'quit':
         print("Endo is shutting down...")
         sleep(1)
