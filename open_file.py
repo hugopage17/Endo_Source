@@ -4,8 +4,8 @@ import subprocess
 from colorama import Fore, Style
 
 class OpenFile:
-    def __init__(self):
-        your_dir = input('Project Directory: ')
+    def __init__(self, folder):
+        your_dir = folder
         your_dir = your_dir.replace('"', "")
         os.chdir(your_dir)
         server_file = Path('server.py')

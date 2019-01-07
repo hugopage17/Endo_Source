@@ -47,8 +47,9 @@ def endo():
         installer.start_server()
     elif command == 'run':
         installer.start_app()
-    elif command == 'open':
-        open = OpenFile()
+    elif (command[:4]) == 'open':
+        folder = command[8:]
+        open = OpenFile(folder)
     elif command == 'quit':
         print("Endo is shutting down...")
         sleep(1)
