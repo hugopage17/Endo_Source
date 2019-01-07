@@ -9,6 +9,6 @@ class Commands:
         print("info: 'displays all technical info about the software'")
         print("start: 'after installation, this command starts the server and deploys the web project'")
         print("run: 'after installation, this command builds the project and deploys the desktop app'")
-        print("open: 'prompts you to enter the diretory of your project then opens the project'")
+        print("open - directory: 'opens any endo projects you have been working on'")
         print("quit: 'Exits the program'")
         print(Style.RESET_ALL)
