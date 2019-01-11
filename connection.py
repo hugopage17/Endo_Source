@@ -4,19 +4,12 @@ import json
 
 class Connection:
     def __init__(self, api_link):
-        try:
-            self.json_source = requests.get(api_link)
-            self.get_link()
-        except requests.ConnectionError:
-            self.connection_warning()
+        self.json_source = requests.get(api_link)
+        self.get_link()
 
     def get_link(self):
         self.json_data = json.loads(self.json_source.text)
         self.is_loaded = True
-
-    def connection_warning(self):
-        print(Fore.YELLOW + "Warning you are offline, Endo requires an internet connection")
-        print(Style.RESET_ALL)
 
     def retrieve_failed(self):
         print (Fore.RED + 'ERROR_01: Endo failed to retrieve data, please check your network and try again.')
