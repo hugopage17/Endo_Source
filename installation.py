@@ -52,7 +52,11 @@ class Installer:
         server_file = Path(current_dir+'/server.py')
         if server_file.is_file():
             os.system('cls')
-            os.system('server.py')
+            try:
+                os.system('server.py')
+            except:
+                print(Fore.RED + "ERROR_11: server.py file could not start, please install python. For more information visit https://www.python.org/")
+                print(Style.RESET_ALL)
         else:
             print(Fore.RED + "ERROR_06: Please create a project first before deploying the server")
             print(Style.RESET_ALL)
