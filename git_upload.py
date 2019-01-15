@@ -35,11 +35,13 @@ class Upload:
                     self.repo_exists = True
                 else:
                     pass
-            if self.repo_exists == False:
-                new_repo = g.get_user().create_repo(self.repository_name)
-                print(Fore.YELLOW + "Creating new repository: "+self.repository_name)
-            else:
+            if self.repo_exists == True:
                 print(Fore.YELLOW + "Connecting to repository: "+self.repository_name)
+                existing_repo = g.get_user().get_repo(self.repository_name)
+                existing_repo.delete()
+            elif self.repo_exists == False:
+                print(Fore.YELLOW + "Creating new repository: "+self.repository_name)
+            new_repo = g.get_user().create_repo(self.repository_name)
             repo = g.get_user().get_repo(self.repository_name)
             dir_files = os.listdir()
             for file in dir_files:
