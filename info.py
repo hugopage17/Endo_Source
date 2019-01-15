@@ -12,7 +12,7 @@ class Info:
             elif j == 3:
                 print("+ Url: localhost:8080    +")
             elif j == 5:
-                print("+ Webpages: ReactJS      +")
+                print("+ Webpages: Bootstrap    +")
             elif j == 7:
                 print("+ Desktop app: Electron  +")
             else:

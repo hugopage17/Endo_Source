@@ -51,9 +51,8 @@ class Installer:
         current_dir = os.getcwd()
         server_file = Path(current_dir+'/server.py')
         if server_file.is_file():
-            os.system('cls')
             try:
-                os.system('server.py')
+                subprocess.call('start /wait python server.py', shell=True)
             except:
                 print(Fore.RED + "ERROR_11: server.py file could not start, please install python. For more information visit https://www.python.org/")
                 print(Style.RESET_ALL)

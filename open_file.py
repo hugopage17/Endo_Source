@@ -12,8 +12,7 @@ class OpenFile:
         mainJS = Path('main.js')
         if server_file.is_file():
             try:
-                os.system('cls')
-                os.system('server.py')
+                subprocess.call('start /wait python server.py', shell=True)
             except:
                 print(Fore.RED + "ERROR_08: server.py file not found, please chck you have the correct directory")
                 print(Style.RESET_ALL)
