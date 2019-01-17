@@ -4,7 +4,6 @@ import os
 from pathlib import Path
 from colorama import Fore, Style
 import requests
-import os
 
 class Upload:
     def __init__(self):

@@ -4,8 +4,11 @@ import json
 
 class Connection:
     def __init__(self, api_link):
-        self.json_source = requests.get(api_link)
-        self.get_link()
+        try:
+            self.json_source = requests.get(api_link)
+            self.get_link()
+        except:
+            pass
 
     def get_link(self):
         self.json_data = json.loads(self.json_source.text)
@@ -23,4 +26,5 @@ class Connection:
                 print('Endo Version: '+version_num)
             print("Type 'create project - project name' to get started")
         except AttributeError:
-            pass
+            print(Fore.YELLOW + 'Warning you are offline, Endo requires an internet connection')
+            print(Style.RESET_ALL)
