@@ -14,7 +14,10 @@ class CreateFile:
                     print(Fore.GREEN + file_name+' successfully created')
                     print(Style.RESET_ALL)
             except requests.ConnectionError:
-                print(Fore.RED + "ERROR_04: No internet connection, please check your connection and try again")
+                warning = Input(Fore.YELLOW + "Warning you are offline, cannot import Endo html bootstrap, do you still wish to continue (y/n): ")
+                if warning == 'y':
+                with open(file_name, 'w') as f:
+                    f.write("<!--Insert HTML Code-->")
                 print(Style.RESET_ALL)
         elif file_extension == 'css':
             print("creating new css: "+file_name)
