@@ -11,6 +11,7 @@ import subprocess
 class Installer:
     def __init__(self):
         pass
+        self.success = False
 
     def run_installer(self, json_data, folder_name):
         current_user = getpass.getuser()
@@ -42,10 +43,13 @@ class Installer:
                 if server_file.is_file():
                     os.system('attrib +h server.py')
                 print(Fore.GREEN + "INSTALLATION COMPLETE")
+                self.success = True
             else:
                 print (Fore.RED + 'ERROR_03: Directory already exists, please name your project something else')
+                print(Style.RESET_ALL)
         except OSError:
             print (Fore.RED + 'ERROR_02: An OS error has occured, installation failed.')
+            print(Style.RESET_ALL)
 
     def start_server(self):
         current_dir = os.getcwd()
@@ -62,7 +66,6 @@ class Installer:
 
     def start_app(self):
         try:
-            os.system('cls')
             subprocess.check_call('npm install', shell=True)
             subprocess.check_call('npm start', shell=True)
         except:

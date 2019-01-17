@@ -48,8 +48,10 @@ class Upload:
                 try:
                     f = open(file, 'rb')
                     data = f.read()
-                    if not f.name == 'creds.txt':
+                    if not f.name == 'creds.txt' and os.stat(file).st_size < 50000000:
                         repo.create_file(f.name, "init commit", data, branch="master")
+                    elif os.stat(file).st_size > 50000000:
+                        print(Fore.RED + "ERROR_14: "+str(f.name)+' size is to large, file did not upload')
                     else:
                         pass
                 except:

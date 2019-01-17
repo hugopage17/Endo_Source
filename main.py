@@ -20,7 +20,6 @@ print("""
 ||||||||  ||      ||||  ||||||||       ||||||||
 """)
 
-
 intro = Intro('https://api.jsonbin.io/b/5c26fbae412d482eae5706fc')
 intro.show_details()
 web_data = 'https://api.jsonbin.io/b/5c26bd046265442e46fe1f1c/3'
@@ -37,8 +36,11 @@ def endo():
         data = GetData(web_data)
         if hasattr(data, 'is_loaded') and data.is_loaded == True:
             installer.run_installer(data.json_data, website_name)
-            print(Fore.YELLOW + "Type 'start' to deploy the server")
-            print(Style.RESET_ALL)
+            if installer.success == True:
+                print(Fore.YELLOW + "Type 'start' to deploy the server")
+                print(Style.RESET_ALL)
+            else:
+                pass
         else:
             data.retrieve_failed()
     elif (command[:10]) == 'create app':
@@ -47,8 +49,11 @@ def endo():
         data = GetData(app_data)
         if hasattr(data, 'is_loaded') and data.is_loaded == True:
             installer.run_installer(data.json_data, app_name)
-            print(Fore.YELLOW + "Type 'run' to start up the app")
-            print(Style.RESET_ALL)
+            if installer.success == True:
+                print(Fore.YELLOW + "Type 'run' to start up the app")
+                print(Style.RESET_ALL)
+            else:
+                pass
         else:
             data.retrieve_failed()
     elif command == 'info':
@@ -60,7 +65,8 @@ def endo():
     elif command == 'run':
         installer.start_app()
     elif (command[:4]) == 'open':
-        folder = command[8:]
+        folder = command[7:]
+        folder = '"'+folder+'"'
         try:
             open = OpenFile(folder)
             repo_name = os.path.basename(os.path.normpath(folder))
