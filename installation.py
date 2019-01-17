@@ -66,6 +66,7 @@ class Installer:
 
     def start_app(self):
         try:
+            os.system('cls')
             subprocess.check_call('npm install', shell=True)
             subprocess.check_call('npm start', shell=True)
         except:
